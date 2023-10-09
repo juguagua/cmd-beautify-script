@@ -94,9 +94,8 @@ sed -i '/^plugins=(/c\plugins=(git zsh-autosuggestions zsh-syntax-highlighting a
 
 # Installing exa
 echo "Installing exa..."
-git clone https://github.com/ogham/exa.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exa || { echo "Failed to install exa"; exit 1; }
-cd ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exa && cargo build --release || { echo "Failed to build exa"; exit 1; }
-cp target/release/exa /usr/bin
+cargo install exa || { echo "Failed to install exa"; exit 1; }
+
 
 # Installing bat
 echo "Installing bat..."
